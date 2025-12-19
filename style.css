@@ -1,0 +1,171 @@
+/* =====================
+   THEME VARIABLES
+===================== */
+:root {
+    --btn-bg: #4a90e2;
+    --btn-hover: #357abd;
+    --operator-bg: #f5a623;
+    --operator-hover: #e59400;
+    --equals-bg: #2ecc71;
+    --equals-hover: #27ae60;
+    --clear-bg: #ad1905;
+    --clear-hover: #fa2109;
+    --card-bg: rgba(222, 193, 193, 0.95);
+    --text-color: #000;
+}
+
+/* GREEN THEME */
+body.theme-green {
+    --btn-bg: #27ae60;
+    --btn-hover: #1e8449;
+    --operator-bg: #58d68d;
+    --operator-hover: #2ecc71;
+}
+
+/* RED THEME */
+body.theme-red {
+    --btn-bg: #e74c3c;
+    --btn-hover: #c0392b;
+    --operator-bg: #f1948a;
+    --operator-hover: #ec7063;
+}
+
+/* DARK MODE */
+body.dark {
+    --card-bg: #1f1f2e;
+    --text-color: #ffffff;
+}
+
+/* =====================
+   BODY
+===================== */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("images.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+}
+
+/* =====================
+   CALCULATOR
+===================== */
+.calculator {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.35);
+    width: 300px;
+    color: var(--text-color);
+}
+
+.theme-panel {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    gap: 10px;                /* Small gap between buttons */
+    margin-bottom: 12px;      /* Space between buttons and display */
+    flex-wrap: wrap;           /* Wrap if needed on very small screens */
+}
+
+.theme-btn {
+    width: 28px;               /* Bigger, visible */
+    height: 28px;
+    border-radius: 50%;        /* Circle shape */
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Colors */
+.theme-btn.blue { background: #4a90e2; }
+.theme-btn.green { background: #27ae60; }
+.theme-btn.red { background: #e74c3c; }
+
+/* Dark mode button */
+.theme-btn.dark {
+    background: #2c2c2c;
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive for small screens */
+@media (max-width: 360px) {
+    .theme-panel { gap: 6px; }
+    .theme-btn { width: 24px; height: 24px; }
+    .theme-btn.dark { font-size: 14px; }
+}
+
+
+/* =====================
+   DISPLAY
+===================== */
+#display {
+    width: 93%;
+    height: 65px;
+    font-size: 40px;
+    margin-bottom: 15px;
+    text-align: right;
+    padding: 10px;
+    border: none;
+    background: linear-gradient(135deg, #1e1e2f, #2a2a4f);
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    height: 55px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: var(--btn-bg);
+    color: #ffffff;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover { background: var(--btn-hover); transform: scale(1.05); }
+
+.operator { background: var(--operator-bg); }
+.operator:hover { background: var(--operator-hover); }
+
+.equals { grid-row: span 2; height: 100%; font-size: 24px; background: var(--equals-bg); }
+.equals:hover { background: var(--equals-hover); }
+
+.clear { background: var(--clear-bg); }
+.clear:hover { background: var(--clear-hover); }
+
+.zero { grid-column: span 2; }
+
+.calc-label { font-size: 12px; font-weight: bold; letter-spacing: 2px; }
